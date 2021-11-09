@@ -1,4 +1,9 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from livereload import Server
+from render_website import get_rendered_page
 
-server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-server.serve_forever()
+def rebuild():
+    print("Site rebuilt")
+
+server = Server()
+server.watch('./templates/template.html', get_rendered_page)
+server.serve(root='index.html')
