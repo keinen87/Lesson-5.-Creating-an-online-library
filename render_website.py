@@ -30,6 +30,3 @@ def on_reload():
     name_file = 'book_page_information.json'
     books_information = get_processed_json_file(name_file)
     get_rendered_page(books_information)
-
-if __name__ == '__main__':
-    os.startfile('main.py')
