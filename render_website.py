@@ -32,4 +32,4 @@ def on_reload():
     get_rendered_page(books_information)
 
 if __name__ == '__main__':
-    os.startfile('main.py')
+    os.startfile(r'C:\Users\icecr\Documents\GitHub\Lesson-5.-Creating-an-online-library\main.py')#сделать путь гибким
