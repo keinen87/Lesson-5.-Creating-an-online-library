@@ -1,9 +1,9 @@
 from livereload import Server
-from render_website import on_reload
+from render_website import get_rendered_page
 
 def rebuild():
     print("Site rebuilt")
 
 server = Server()
-server.watch('./templates/template.html', on_reload)
+server.watch('./templates/template.html', get_rendered_page)
 server.serve(root='index.html')
