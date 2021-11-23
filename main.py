@@ -5,5 +5,5 @@ def rebuild():
     print("Site rebuilt")
 
 server = Server()
-server.watch('./templates/template.html', get_rendered_page)
-server.serve(root='index.html')
+server.watch('./templates/template.html', get_rendered_page, rebuild())
+server.serve(root='.')

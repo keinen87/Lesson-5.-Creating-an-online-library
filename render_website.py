@@ -10,7 +10,7 @@ def get_rendered_page():
         books_information = json.load(my_file)
 
     env = Environment(
-        loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')),
+        loader=jinja2.FileSystemLoader('templates'),
         autoescape=select_autoescape(['html', 'xml'])
     )
 
@@ -23,4 +23,4 @@ def get_rendered_page():
 
 
 if __name__ == '__main__':
-    os.startfile(r'C:\Users\icecr\Documents\GitHub\Lesson-5.-Creating-an-online-library\main.py')#сделать путь гибким
+    os.startfile('main.py')
