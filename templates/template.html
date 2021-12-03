@@ -12,7 +12,6 @@
   </head>
   <body>
     <!-- Optional JavaScript; choose one of the two! -->
-
     {% for book_two_information in books_information %}
     <div class="container">
       <div class="row">
@@ -29,6 +28,7 @@
                       <div class="card-body">
                         <h5 class="card-title">{{ book_information.filename }}</h5>
                         <p class="card-text">{{ book_information.author }}</p>
+                        <a href="/books/{{book_information.filename}}.txt" target="_blank" rel="noopener noreferrer">Читать</a>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
