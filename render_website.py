@@ -2,6 +2,7 @@ import os
 import json
 import jinja2
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from more_itertools import chunked
 
 def get_rendered_page():
     name_file = 'book_page_information.json'
@@ -14,11 +15,9 @@ def get_rendered_page():
         autoescape=select_autoescape(['html', 'xml'])
     )
 
-    books_information = [{"filename": "Алиби   ", "author": "   ИВАНОВ Сергей", "image_name": "shots/239.jpg", "genres": ["Научная фантастика"]}]
-
     template = env.get_template('template.html')
     rendered_page = template.render(
-        books_information=books_information,
+        books_information=(list(chunked(books_information, 2)))
         )
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
