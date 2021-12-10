@@ -13,17 +13,16 @@
   <body>
     <!-- Optional JavaScript; choose one of the two! -->
     {% for book_two_information in books_information %}
-    <div class="container">
       <div class="row">
         {% for book_information in book_two_information %} 
         <div class="col">
-          <div class="container-col">
+          <div class="container">
             <div class="col">
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src={{ book_information.image_name|urlencode }} class="card-img" alt='{{ book_information.filename }}'>
-                  </div>
+                  </div> 
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">{{ book_information.filename }}</h5>
@@ -43,7 +42,7 @@
       </div>
     </div>
     {% endfor %}
-
+    <a id="my-family" href="/index{{ index_id }}.html">стр =></a> 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

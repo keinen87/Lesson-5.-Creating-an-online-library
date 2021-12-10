@@ -16,11 +16,16 @@ def get_rendered_page():
     )
 
     template = env.get_template('template.html')
-    rendered_page = template.render(
-        books_information=(list(chunked(books_information, 2)))
-        )
-    with open('index.html', 'w', encoding="utf8") as file:
-        file.write(rendered_page)
+    books_information = (list(chunked(books_information, 10)))
+
+    for num, books_information in enumerate(books_information):
+
+        rendered_page = template.render(
+            books_information=books_information,
+            index_id=num+1
+            )
+        with open(('index{}.html').format(num), 'w', encoding="utf8") as file:
+            file.write(rendered_page)
 
 
 if __name__ == '__main__':
