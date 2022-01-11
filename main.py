@@ -6,4 +6,4 @@ def rebuild():
 
 server = Server()
 server.watch('./templates/template.html', get_rendered_page, rebuild())
-server.serve(root='.')
+server.serve(root='.', default_filename='pages/index1.html')

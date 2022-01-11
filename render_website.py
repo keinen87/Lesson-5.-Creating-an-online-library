@@ -3,6 +3,7 @@ import json
 import jinja2
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from more_itertools import chunked
+from itertools import count
 
 def get_rendered_page():
     name_file = 'book_page_information.json'
@@ -16,15 +17,19 @@ def get_rendered_page():
     )
 
     template = env.get_template('template.html')
-    books_information = (list(chunked(books_information, 10)))
-
-    for num, books_information in enumerate(books_information):
+    books_information = list(chunked(books_information, 10))
+    
+    for num, part_of_books in enumerate(books_information, 1):
+        if num <= 1:
+            path_file = 'pages/index{}'.format(num+1)
+        else:
+            path_file = 'index{}'.format(num+1)
 
         rendered_page = template.render(
-            books_information=books_information,
-            index_id=num+1
+            books_information=list(chunked(part_of_books, 2)),
+            path_file=path_file,
             )
-        with open(('index{}.html').format(num), 'w', encoding="utf8") as file:
+        with open(('pages/index{}.html').format(num), 'w', encoding="utf8") as file:
             file.write(rendered_page)
 
 
