@@ -21,13 +21,14 @@ def get_rendered_page():
     
     for num, part_of_books in enumerate(books_information, 1):
         if num <= 1:
-            path_file = 'pages/index{}'.format(num+1)
+            path_file = 'pages/index'
         else:
-            path_file = 'index{}'.format(num+1)
+            path_file = 'index'
 
         rendered_page = template.render(
             books_information=list(chunked(part_of_books, 2)),
             path_file=path_file,
+            id_num=num
             )
         with open(('pages/index{}.html').format(num), 'w', encoding="utf8") as file:
             file.write(rendered_page)

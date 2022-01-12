@@ -21,7 +21,7 @@
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src=..{{ book_information.image_name|urlencode }} class="card-img" alt='{{ book_information.filename }}'>
+                    <img src=/images/{{ book_information.image_name|urlencode }} class="card-img" alt='{{ book_information.filename }}'>
                   </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -29,7 +29,7 @@
                         <p class="card-text">{{ book_information.author }}</p>
                         <a href="/books/{{book_information.filename}}.txt" target="_blank" rel="noopener noreferrer">Читать</a>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                        </div> 
                       </div>
                     </div>
                   </div>
@@ -42,8 +42,19 @@
       </div>
     </div>
     {% endfor %}
-    <a id="my-family" href="{{ path_file }}.html"> Вперёд ></a>
-  
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <a class="page-link" href="{{ path_file }}{{ id_num-1 }}.html" aria-label="Previous">
+          <span aria-hidden="true">Previous</span>
+        </a>
+        <li class="page-item"><a class="page-link" href="{{ path_file }}{{ id_num }}.html">{{ id_num }}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ path_file }}{{ id_num+1 }}.html">{{ id_num+1 }}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ path_file }}{{ id_num+2 }}.html">{{ id_num+2 }}</a></li>
+          <a class="page-link" href="{{ path_file }}{{ 1+id_num }}.html">Next</a> 
+        </li>
+      </ul>
+    </nav>
+    
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
