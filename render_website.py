@@ -28,7 +28,8 @@ def get_rendered_page():
         rendered_page = template.render(
             books_information=list(chunked(part_of_books, 2)),
             path_file=path_file,
-            id_num=num
+            id_num=num,
+            num_pages=5 #добавить счет страниц
             )
         with open(('pages/index{}.html').format(num), 'w', encoding="utf8") as file:
             file.write(rendered_page)
