@@ -48,7 +48,7 @@
           <span aria-hidden="true">Previous</span>
         </a>
         {% for num in range( num_pages ) %} 
-          <li class="page-item"><a class="page-link" href="{{ path_file }}{{ num }}.html">{{ num }}</a></li>
+          <li class="page-item"><a class="page-link" href="{{ path_file }}{{ num+1 }}.html">{{ num+1 }}</a></li>
         {% endfor %} 
           <a class="page-link" href="{{ path_file }}{{ 1+id_num }}.html">Next</a> 
         </li>
